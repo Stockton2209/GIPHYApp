@@ -1,11 +1,16 @@
 
-
-
-
 $(document).ready(function() {
-$("#gifArea").append("<button class='gifButtons' value='cats'>Cats</button>");
-$("#gifArea").append("<button class='gifButtons' value='Ryan Gosling'>Ryan Gosling</button>");
-//create id=gifButtons buttons for id=gifArea which include a few preset with certain values
+
+var buttonChoices = ["Cats", "Moar Cats", "Ryan Gosling", "Ready Player One", "Coding", "Cheesburgers", "Pizza",]
+// append an array of buttons at the top.
+for (var i = 0; i < buttonChoices.length; i++) {
+    $("#gifButtonArea").append("<button class='gifButtons' value="+ buttonChoices[i] + ">" + buttonChoices[i] + "</button>");
+}
+
+// Search field and search button for "Add an Animal"
+$("#searchDiv").append
+
+// Append HTML button to "gifButtonArea" after search butto is clicked.
 
 
 $(".gifButtons").on("click", function() {
@@ -13,7 +18,7 @@ $(".gifButtons").on("click", function() {
     // Attach API key property and value
     // attach tag=cats
     var gifSearch = $(this).val().trim();
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=1mwvVwbDJXA13TmnYXLJKAX0whsoKDHc&limit=5";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gifSearch + "&api_key=1mwvVwbDJXA13TmnYXLJKAX0whsoKDHc&limit=2";
     
     // AJAX - API Query getter.
     $.ajax({
@@ -24,17 +29,33 @@ $(".gifButtons").on("click", function() {
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
-        
-        console.log(results);
+        var gifDiv = $("<div class='col-sm-3'>")
+        var rating = results[i].rating;
 
-        var gifImage = $("<img>");
-        
-        gifImage.attr("src", results[i].images.fixed_height.url);
-        console.log(gifImage);
+        var p = $("<p>").text("Rating: " + rating);
 
-        $("#gifs").prepend(gifImage);
+        var gifImage = $("<img class='img-fluid img-thumbnail'>").attr("src", results[i].images.fixed_height.url);
+        
+        gifDiv.prepend(p);
+        gifDiv.prepend(gifImage);
+
+        $("#gifs").prepend(gifDiv);
         }
       });
   });
 
 });
+
+// $("#gifs").on("click", function() {
+
+// FOR PAUSING AND STARTING GIFs
+// var state = $(this).attr("data-state");
+// if (state === "still") {
+//     $(this).attr('src', $(this).attr("data-animate"));
+//     $(this).attr("data-state", "animate")
+//   }
+//   if (state === "animate") {
+//     $(this).attr('src', $(this).attr("data-still"));
+//     $(this).attr("data-state", "still")
+//   }
+// });
