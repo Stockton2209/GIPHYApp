@@ -10,3 +10,6 @@
 * AJAX for retrieving data from GIPHY.
 * Change the "data state" (animate/still) by clicking.
 * Search box adds buttons to page for querying GIPHY.
+
+### Notes
+* The homework called for a GIPHY search and I chose to use the random API option as I wanted to not get the same 10 GIFs returned when you press the same button. It runs the query multiple times and returns the GIFs one at a time but it won't be the same each click.
