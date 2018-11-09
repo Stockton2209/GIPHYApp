@@ -3,8 +3,9 @@ body {
     background-size: 100%;
 }
 
-// dark from tape #30252C
-// yellow from tape #FCF0BC
+h1 {
+    text-align: center;
+}
 
 .container {
     max-width: 920px;
@@ -15,6 +16,12 @@ button {
     background-color:#FCF0BC;
     font-size: 20px;
     color: #30252C;
+    border-radius: 12px;
+}
+
+p {
+    text-align: center;
+    color: #30252C;
 }
 
 #gifs {
@@ -22,6 +29,8 @@ button {
     flex-wrap: wrap;
     align-items: center;
 }
+
+
 
 #header {
     display: flex;

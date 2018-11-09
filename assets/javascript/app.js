@@ -1,9 +1,9 @@
 
 $(document).ready(function() {
 
-  var buttonChoices = ["Cats", "Moar Cats", "Ryan Gosling", "Ready Player One", "Coding", "Cheesburgers", "Pizza"];
+  var buttonChoices = ["The Beatles", "David Bowie", "The Rolling Stones", "Jimi Hendrix", "Buddy Holly", "Bob Dylan", "Chick Berry", "Sam Cooke", "Marvin Gaye", "Otis Redding", "Muddy Watters"];
 
-  // Empties button area. Loops through array, creating a button and a click listener for each button.
+  // Empties the button area. Loops through array, creating a button and a click listener for each.
   function renderButtons() {
     $("#gifButtonArea").empty();
     for (var i = 0; i < buttonChoices.length; i++) {
@@ -49,20 +49,32 @@ $(document).ready(function() {
     var GIPHYRandom = "random?tag="
     var apiKey = "&api_key=1mwvVwbDJXA13TmnYXLJKAX0whsoKDHc";
     var queryURL = CORSLink + GIPHYPath + GIPHYRandom + gifSearch + apiKey;
-    for (var i = 0; i < 1; i++) {
+    for (var i = 0; i < 10; i++) {
       $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response) {
         var gifData = response.data.images;
-        var gifDiv = $("<div>")
+
+        // Title of GIF
+        var gifTitle = response.data.title;
+        var p = $("<p>");
+        p.text(gifTitle);
+
+        // GIF Image creation and attribute adding.
         var gifImage = $("<img class='img-fluid img-thumbnail'>");
         gifImage.attr("src", gifData.fixed_height_still.url);
         gifImage.attr("data-still", gifData.fixed_height_still.url);
         gifImage.attr("data-animate", gifData.fixed_height.url);
         gifImage.attr("data-state", "still");
+
+        //GIF Div creation.
+        var gifDiv = $("<div>")
+        gifDiv.prepend(p)
         gifDiv.prepend(gifImage);
         $("#gifs").prepend(gifDiv);
+
+        //Click listener for animation/still toggling.
         $("#gifs > div > img").on("click", function() {
           var state = $(this).attr("data-state");
           if (state === "still") {

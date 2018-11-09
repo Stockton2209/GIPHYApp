@@ -12,4 +12,4 @@
 * Search box adds buttons to page for querying GIPHY.
 
 ### Notes
-* The homework called for a GIPHY search and I chose to use the random API option as I wanted to not get the same 10 GIFs returned when you press the same button. It runs the query multiple times and returns the GIFs one at a time but it won't be the same each click.
+* The homework called for a GIPHY search and I chose to use the random API option as I wanted to not get the same 10 GIFs returned when you press the same button. It runs the query multiple times and returns the GIFs one at a time but it won't be the same each click. HOWEVER, with that, the rating tag doesn't come with the AJAX response so I chose to leave it out and use title instead.
