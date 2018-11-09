@@ -3,15 +3,18 @@ body {
     background-size: 100%;
 }
 
+// dark from tape #30252C
+// yellow from tape #FCF0BC
+
 .container {
     max-width: 920px;
     align-self: center;
 }
 
 button {
-    background-color: black;
+    background-color:#FCF0BC;
     font-size: 20px;
-    color: beige;
+    color: #30252C;
 }
 
 #gifs {
