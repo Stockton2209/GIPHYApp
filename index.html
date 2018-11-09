@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GIPHY API App</title>
+    <title>Rock Gifs</title>
 
     <!-- Reset -->
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -22,30 +22,27 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>GIPHY App</h1>
+                <h1>Rock'n'Roll Gifs</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-1"></div>
+        <div class="row" id="header">
             <div class="col" id="gifButtonArea">
-                <!-- buttons for giphy searches -->
+                <!-- buttons to press for giphy searches which will populate the gifs div.-->
+                <!-- buttons will be added here from searches -->
             </div>
             <div class="col-1"></div>
+            <div class="col" id="searchDiv">
+                <!-- Search form -->
+            </div>
         </div>
         <br>
 
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col-6">
-                <div class="row" id="gifs">
+            <div class="col" id="gifs">
                     <!-- where app.js appends gifs from api -->
                 </div>
             </div>
-            <div class="col-1"></div>
-            <div class="col-3" id="searchDiv">
-                <!-- Search form -->
-            </div>
-            <div class="col-1"></div>
+            
         </div>
 
     </div>
